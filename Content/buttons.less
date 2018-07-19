@@ -1,0 +1,74 @@
+@import "variables.less";
+@import "mixins.less";
+
+@btn-border-width: 2px;
+@btn-border-radius: 55px;
+@btn-padding: 5px 50px;
+@btn-active: @active-text;
+@edit-radius: 70px;
+@edit-padding: 5px 35px;
+
+.btn{
+  .upper;
+  border-width: @btn-border-width;
+  border-radius: @btn-border-radius;
+  background-color: @white;
+  color: @block-text-color;
+  border-color: @block-text-color;
+  border-style: solid;
+  padding: @btn-padding;
+  outline: none;
+  font-size: @text-smaller;
+  cursor: pointer;
+  margin-bottom: 10px;
+  &:hover{
+    border-color: @active-text;
+    color: @active-text;
+    box-shadow: none;
+  }
+  &:focus, &:active, &:active:focus{
+    outline: none;
+  }
+  &[type=submit]{
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+.btn-edit{
+  display: table;
+  padding: @edit-padding;
+  z-index: 2;
+  color: @white;
+  border: 2px solid @white;
+  border-radius: @edit-radius;
+  font-size: @text-size;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  &:before, &:after {
+    content: " ";
+    position: absolute;
+    height: 2px;
+    background-color: @white;
+    left: 100%;
+    top: 50%;
+    margin-top: -1px;
+    width: 500px;
+  }
+  &:after {
+    right: 100%;
+    left: auto;
+  }
+}
+.btn-empty{
+  border: none;
+  background: transparent;
+  outline: none;
+  min-width: 100%;
+  height: @choose-currency-height;
+}
+#buysell_block .btn{
+  padding-left: 20px;
+  padding-right: 20px;
+}

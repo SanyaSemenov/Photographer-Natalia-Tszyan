@@ -1,0 +1,23 @@
+.smooth{
+  -webkit-transition: 1s cubic-bezier(0.5, 0, 0, 1);
+  -moz-transition: 1s cubic-bezier(0.5, 0, 0, 1);
+  -o-transition: 1s cubic-bezier(0.5, 0, 0, 1);
+  transition: 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.smooth-long(@property, @length){
+  -webkit-transition: @property @length ease-in-out;
+  -moz-transition: @property @length ease-in-out;
+  -o-transition: @property @length ease-in-out;
+  transition: @property @length ease-in-out;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
