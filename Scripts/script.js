@@ -162,7 +162,9 @@ $(function () {
     if ($(window).width() >= 768) {
       var top = parseInt(name_label.offset().top);
       if (top > 0)
+      setTimeout(function(){
         menu_button.css('top', top + 'px');
+      },100);
     }
   }
 });
