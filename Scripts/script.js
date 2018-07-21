@@ -37,7 +37,7 @@ $(function () {
   window.PhotoTimer = setInterval(function () {
     NextPhoto();
   }, 5000);
-  
+
   function NextPhoto() {
     $(active.currentPhoto).removeClass('current');
     $(active.nextPhoto).removeClass('next');
@@ -60,19 +60,19 @@ $(function () {
   }, 350);
 
 
-  menu_button.hover(function(){
-    if($(window).width()>768){
+  menu_button.hover(function () {
+    if ($(window).width() > 768) {
       clearInterval(ButtonInterval);
       clearInterval(OriginButtonInterval);
       clearTimeout(ButtonTimeout);
       $(this).addClass('zoomIn');
     }
-  }, function(){
+  }, function () {
     $(this).removeClass('zoomIn');
     ButtonInterval = setInterval(function () {
       menu_button.addClass('zoomIn');
     }, 2000);
-  
+
     ButtonTimeout = setTimeout(function () {
       OriginButtonInterval = setInterval(function () {
         menu_button.removeClass('zoomIn');
@@ -80,25 +80,43 @@ $(function () {
     }, 350);
   });
 
-  menu_button.click(function(){
-    if($(window).width()<768){
+  menu_button.click(function () {
+    if ($(window).width() < 768) {
       nav.toggleClass('closed');
       menu_button.toggleClass('open');
       menu_container.toggleClass('open');
+      $('header .container-fluid').toggleClass('open');
+      if($(window).height()<450 && !nav.hasClass('closed')){
+        var nav_height = nav.height();
+        $('header .container-fluid').css('top', 'calc(50% + '+nav_height/2+'px');
+      }
+      else if($(window).height()<450 && nav.hasClass('closed')){
+        $('header .container-fluid').css('top', '50%');
+      }
     }
-    else{
+    else {
       nav.removeClass('closed');
       menu_button.addClass('open');
       menu_container.addClass('open');
+      $('header').addClass('open');
     }
   });
 
-  nav.hover(function(){
-
-  }, function(){
+  function CloseNav() {
     nav.addClass('closed');
     menu_button.removeClass('open');
     menu_container.removeClass('open');
+    $('header').removeClass('open');
+  }
+
+  nav.hover(function () {
+
+  }, function () {
+    CloseNav();
+  });
+
+  $('header').click(function(){
+    CloseNav();
   });
 
   var height = $(window).height();
