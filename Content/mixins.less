@@ -12,6 +12,22 @@
   transition: @property @length ease-in-out;
 }
 
+// cubic-bezier(0.82, 0.1, 0.47, 1.62)
+
+.smooth(@property, @time, @smooth){
+  -webkit-transition: @property @time @smooth;
+  -moz-transition: @property @time @smooth;
+  -o-transition: @property @time @smooth;
+  transition: @property @time @smooth;
+}
+
+.smooth(@property1, @property2, @time1, @time2, @smooth1, @smooth2){
+  -webkit-transition: @property1 @time1 @smooth1, @property2 @time2 @smooth2;
+  -moz-transition: @property1 @time1 @smooth1, @property2 @time2 @smooth2;
+  -o-transition: @property1 @time1 @smooth1, @property2 @time2 @smooth2;
+  transition: @property1 @time1 @smooth1, @property2 @time2 @smooth2;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -20,4 +36,11 @@
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

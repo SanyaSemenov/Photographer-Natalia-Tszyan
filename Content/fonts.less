@@ -5,7 +5,13 @@
 .general-text{
     font-family: @main-font;
     font-weight: 400;
-    font-size: @text-size;
+    font-size: @text-size-mobile;
+    @media @tablet{
+        font-size: @text-size-tablet;
+    }
+    @media @desktop{
+        font-size: @text-size;
+    }
     color: @color-main;
 }
 

@@ -1,6 +1,7 @@
 @import "mixins.less";
 @import "variables.less";
 @import "fonts.less";
+@import "buttons.less";
 
 
 @tablet: ~"(min-width: 768px)";
@@ -40,10 +41,7 @@ header{
   height: 100vh;
   .container-fluid{
     z-index: 100;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .centered;
   }
   h2{
     .smooth-long(all, 2s);
@@ -51,6 +49,24 @@ header{
   }
   h1{
     margin-top: 0px;
+  }
+}
+
+.menu-container{
+  .smooth;
+  position: absolute;
+  height: 100%;
+  padding: 0px;
+  z-index: 100;
+  @media @tablet{
+    z-index: 50;
+  }
+  &.open{
+    @media (max-width: 767px) {
+      width: 100%;
+      height: auto;
+      z-index: 100;
+    }
   }
 }
 
@@ -70,15 +86,7 @@ header{
     z-index: 1;
     opacity: 0;
     img{
-      // width: 100vw;
-      // height: auto;
-      // object-fit: contain;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      // width: 100%;
-      // min-height: 100%;
+      .centered;
     }
     &.current{
       z-index: 3;
@@ -94,13 +102,23 @@ header{
 nav{
   .smooth;
   z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  background: rgba(0,0,0,0.8);
+  &.closed{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .navbar-collapse{
+    position: relative;
+  }
+  
   @media @tablet{
+    opacity: 1;
     height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 25%;
-    background: rgba(0,0,0,0.8);
     &.closed{
       transform: translateX(-100%);
     }
@@ -113,10 +131,8 @@ nav{
     }
 
     .navbar-collapse{
+      .centered;
       position: relative;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
     }
   }
 }
@@ -126,13 +142,19 @@ nav{
 }
 
 .navbar-nav{
+  float: left;
   left: 50%;
   position: relative;
   transform: translateX(-50%);
-  // width: 100%;
+  @media (max-width: 767px){
+    margin-top: 30px;
+  }
   &>li{
     @media @tablet{
       float: unset;
+      &>a{
+        line-height: 30px;
+      }
     }
     &>a{
       z-index: 10;

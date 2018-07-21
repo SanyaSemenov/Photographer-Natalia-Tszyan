@@ -4,71 +4,82 @@
 @btn-border-width: 2px;
 @btn-border-radius: 55px;
 @btn-padding: 5px 50px;
-@btn-active: @active-text;
 @edit-radius: 70px;
 @edit-padding: 5px 35px;
 
 .btn{
-  .upper;
   border-width: @btn-border-width;
   border-radius: @btn-border-radius;
-  background-color: @white;
-  color: @block-text-color;
-  border-color: @block-text-color;
   border-style: solid;
-  padding: @btn-padding;
   outline: none;
-  font-size: @text-smaller;
   cursor: pointer;
-  margin-bottom: 10px;
   &:hover{
-    border-color: @active-text;
-    color: @active-text;
     box-shadow: none;
   }
   &:focus, &:active, &:active:focus{
     outline: none;
   }
-  &[type=submit]{
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
 }
 
-.btn-edit{
-  display: table;
-  padding: @edit-padding;
-  z-index: 2;
-  color: @white;
-  border: 2px solid @white;
-  border-radius: @edit-radius;
-  font-size: @text-size;
-  text-decoration: none;
-  position: relative;
-  cursor: pointer;
-  &:before, &:after {
-    content: " ";
-    position: absolute;
-    height: 2px;
-    background-color: @white;
-    left: 100%;
-    top: 50%;
-    margin-top: -1px;
-    width: 500px;
-  }
-  &:after {
-    right: 100%;
-    left: auto;
-  }
-}
 .btn-empty{
   border: none;
   background: transparent;
   outline: none;
-  min-width: 100%;
-  height: @choose-currency-height;
 }
-#buysell_block .btn{
-  padding-left: 20px;
-  padding-right: 20px;
+
+.btn-menu{
+  .smooth(transform, 0.5s, cubic-bezier(0.5, 0, 0.5, 2), left, 0.5s, ease-in-out);
+  transform-origin: 50% 50%;
+  position: absolute;
+  
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  padding: 0px;
+  top: 10px;
+  left: calc(50% - 25px);
+  @media @tablet{
+    top: calc(50% - 25px + 32.5px);
+  }
+  span{
+    display: block;
+    .centered;
+    border-bottom: 1px solid white;
+    width: 18px;
+    &:first-child{
+      transform: translate(-50%, calc(~"-50% - 6px"));
+    }
+    &:last-child{
+      transform: translate(-50%, calc(~"-50% + 6px"));
+    }
+  }
+
+  &.zoomIn{
+    transform: scale(1.2);
+  }
+
+  &.open{
+    z-index: 1000;
+    left: calc(100% - 60px);
+    transform: none;
+    border-color: transparent;
+    @media @tablet{
+      opacity: 0;
+      left: calc(50% - 25px);
+    }
+    span{
+      .smooth(all, 0.5s, ease-in-out);
+      @media (max-width: 767px){
+        &:not(:first-child):not(:last-child){
+          opacity: 0;
+        }
+        &:first-child{
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:last-child{
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+    }
+  }
 }
