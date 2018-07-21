@@ -31,9 +31,13 @@
   .smooth(all, 0.5s, cubic-bezier(0.5, 0, 0.5, 2), left, 0.5s, ease-in-out);
   transform-origin: 50% 50%;
   position: absolute;
-  
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+
+  @media @tablet{
+    width: 50px;
+    height: 50px;
+  }
   border: 2px solid white;
   padding: 0px;
   top: 10px;
@@ -46,12 +50,21 @@
     display: block;
     .centered;
     border-bottom: 1px solid white;
-    width: 25px;
+    width: 18px;
     &:first-child{
-      transform: translate(-50%, calc(~"-50% - 8px"));
+      transform: translate(-50%, calc(~"-50% - 6px"));
     }
     &:last-child{
-      transform: translate(-50%, calc(~"-50% + 8px"));
+      transform: translate(-50%, calc(~"-50% + 6px"));
+    }
+    @media @tablet{
+      width: 25px;
+      &:first-child{
+        transform: translate(-50%, calc(~"-50% - 8px"));
+      }
+      &:last-child{
+        transform: translate(-50%, calc(~"-50% + 8px"));
+      }
     }
   }
 
