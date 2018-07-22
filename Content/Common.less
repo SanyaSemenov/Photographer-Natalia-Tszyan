@@ -304,6 +304,7 @@ nav.nav {
   padding: 0px 10px;
   overflow: auto;
   direction: rtl;
+  .smooth-long(all, 0.3s);
   &::-webkit-scrollbar-track
   {
     background-color: white;
@@ -312,7 +313,7 @@ nav.nav {
 
   &::-webkit-scrollbar
   {
-    width: 10px;
+    width: 5px;
     background-color: white;
   }
 
@@ -328,14 +329,24 @@ nav.nav {
     padding: 0px 40px;
     left: -2px;
     top: @navbar-offset-tablet;
-    max-height: calc(100vh - @navbar-offset-tablet*2);
+    height: calc(100vh - @navbar-offset-tablet*2);
+    // width: calc(100vh - @navbar-offset-tablet*2);
+    // padding-left: calc(((100vw*8/12) - (100vh - @navbar-offset-tablet*2))/2);
+    // padding-right: calc(((100vw*8/12) - (100vh - @navbar-offset-tablet*2))/2);
   }
   @media @desktop {
     padding: 0px 80px;
     top: @navbar-offset;
-    max-height: calc(100vh - @navbar-offset*2);
+    height: calc(100vh - @navbar-offset*2);
+    // width: calc(100vh - @navbar-offset*2);
+    // padding-left: calc(((100vw*9/12) - (100vh - @navbar-offset*2))/2);
+    // padding-right: calc(((100vw*9/12) - (100vh - @navbar-offset*2))/2);
+  }
+  @media @large{
+    padding: 0px 120px;
   }
   p{
+    .smooth-long(all, 0.3s);
     direction: ltr;
     font-size: 18px;
     margin: 0 auto;
@@ -348,6 +359,10 @@ nav.nav {
     }
     @media @hd{
       font-size: 28px;
+    }
+    .first-line{
+      display: block;
+      // float: right;
     }
   }
   .right{
