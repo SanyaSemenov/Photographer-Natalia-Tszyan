@@ -2,7 +2,7 @@
 @import "mixins.less";
 
 @main-font: 'Poiret One', 'Roboto', sans-serif;;
-.general-text{
+.general-text(@color){
     font-family: @main-font;
     font-weight: 400;
     font-size: @text-size-mobile;
@@ -12,7 +12,7 @@
     @media @desktop{
         font-size: @text-size;
     }
-    color: @color-main;
+    color: @color;
 }
 
 .normal{

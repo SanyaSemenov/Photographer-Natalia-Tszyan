@@ -25,12 +25,18 @@
 @text-size-mobile: 24px;
 @text-size-tablet: 28px;
 
+@navbar-offset: 150px;
+@navbar-offset-tablet: 100px;
+
 html,body{
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background: black;
-  .general-text;
+  .general-text(@color-main);
+  &.main-body{
+    background: black;
+    overflow: hidden;
+  }
+  height: 100%;
 }
 
 body{
@@ -111,7 +117,7 @@ header{
   }
 }
 
-nav{
+.main-nav{
   .smooth;
   z-index: 100;
   position: fixed;
@@ -158,14 +164,11 @@ nav{
   text-align: left;
 }
 
-.navbar-nav{
+.navbar(@color){
   float: left;
   left: 50%;
   position: relative;
   transform: translateX(-50%);
-  @media (max-width: 767px){
-    margin-top: 30px;
-  }
   &>li{
     @media @tablet{
       float: unset;
@@ -176,13 +179,191 @@ nav{
     &>a{
       z-index: 10;
       display: inline-block;
-      color: @color-m-p;
+      color: @color;
       .smooth-long(all, 0.3s);
       &:hover,&:focus{
         text-decoration: none;
         background-color: transparent;
-        color: @color-m-p;
-        opacity: 0.7;
+        color: @color;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.main-navbar{
+  .navbar(@color-m-p);
+  @media (max-width: 767px){
+    margin-top: 30px;
+  }
+}
+
+nav.nav {
+  padding: 0;
+  @media (max-width: 767px){
+    min-height: 90px;
+    background: white;
+    border-bottom: 1px solid #7f7f7f;
+    &.fixed-top{
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+  }
+  .navbar-collapse{
+    width: 100%;
+    @media @tablet{
+      position: fixed;
+      height: calc(100vh - @navbar-offset-tablet*2)!important;
+      top: @navbar-offset-tablet;
+      width: 33.33333333%;
+      border-right: 2px solid #7f7f7f;
+    }
+    @media @desktop{
+      height: calc(100vh - @navbar-offset*2)!important;
+      top: @navbar-offset;
+    }
+    @media @hd{
+      width: 25%;
+    }
+    .navbar-nav{
+      .navbar(@color-main);
+      .centered;
+      @media (max-width: 767px){
+        top: unset;
+        transform: translate(-50%, 0%);
+      }
+      position: relative;
+      &>li{
+        &>a{
+    
+        }
+      }
+    }
+  }
+}
+
+.navbar-header{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (max-width: 767px){
+    border-bottom: 1px solid #7f7f7f;
+  }
+}
+
+.collapse{
+  @media(max-width:767px){
+    background: white;
+  }
+  &.in{
+    z-index: 100;
+    .navbar-nav{
+      top: unset!important;
+      transform: translate(-50%,0%)!important;
+    }
+  }
+}
+
+.brand{
+  display: block;
+  color: @color-main;
+  float: left;
+  margin-left: 10px;
+  &:hover,&:focus{
+    text-decoration: none;
+    background-color: transparent;
+    color: @color-main;
+  }
+  h1{
+    border-bottom: 2px solid #7f7f7f;
+    margin-bottom: 0px;
+    font-size: 28px;
+    @media @hd {
+      font-size: 36px;
+    }
+  }
+  h2{
+    margin-top: 0px;
+    font-size: 24px;
+    @media @hd {
+      font-size: 30px
+    }
+  }
+  @media @tablet{
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  @media @desktop {
+    margin-top: 40px; 
+  }
+}
+
+.content{
+  position: relative;
+  padding: 0px 10px;
+  overflow: auto;
+  direction: rtl;
+  &::-webkit-scrollbar-track
+  {
+    background-color: white;
+    border: 1px solid black
+  }
+
+  &::-webkit-scrollbar
+  {
+    width: 10px;
+    background-color: white;
+  }
+
+  &::-webkit-scrollbar-thumb
+  {
+    background-color: #000000;
+    border: 2px solid #555555;
+  }
+  @media (max-width: 767px){
+    margin-top: 100px;
+  }
+  @media @tablet {
+    padding: 0px 40px;
+    left: -2px;
+    top: @navbar-offset-tablet;
+    max-height: calc(100vh - @navbar-offset-tablet*2);
+  }
+  @media @desktop {
+    padding: 0px 80px;
+    top: @navbar-offset;
+    max-height: calc(100vh - @navbar-offset*2);
+  }
+  p{
+    direction: ltr;
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: justify;
+    @media @tablet {
+      font-size: 22px; 
+    }
+    @media @desktop {
+      font-size: 24px
+    }
+    @media @hd{
+      font-size: 28px;
+    }
+  }
+  .right{
+    padding: 0px;
+    direction: ltr;
+    @media @tablet {
+      margin-left: 25px;
+      padding: 0px 15px;
+    }
+    @media @desktop{
+      margin-left: 35px;
+    }
+    img{
+      width: 100%;
+      @media (max-width:767px){
+        margin-bottom: 10px;
       }
     }
   }
