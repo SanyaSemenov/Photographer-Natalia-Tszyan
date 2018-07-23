@@ -4,6 +4,7 @@ var name_label = $('#name_label');
 var menu_button = $('#menu_button');
 var menu_container = $('.menu-container');
 var nav = $('nav');
+var body = $('body');
 
 $(function () {
   window.ButtonInterval = setInterval(function () {
@@ -86,6 +87,7 @@ $(function () {
 
   $(window).load(function () {
     $(window).trigger('resize');
+    body.removeClass('invisible');
     SetOffsetButton();
   });
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Фотограф Наталия Цзян - Студия</title>
+  <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Poiret+One|Roboto:100" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../Content/bootstrap.min.css">
+  <link rel="stylesheet/less" href="../Content/Common.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js"></script>
+  <script src="../Scripts/jquery.js"></script>
+  <base href="/">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-xs-12 col-sm-4 col-lg-3 nav fixed-top closed">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="navbar-header">
+              <button type="button" id="menu_button" class="btn btn-empty btn-menu menu navbar-toggle" data-toggle="collapse" data-target="#nav">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <a class="brand text-center" href="index.html">
+                <h1 class="upper">Наталия Цзян</h1>
+                <h2 class="cursive">photographer</h2>
+              </a>
+            </div>
+            <div class="navbar-collapse collapse" id="nav">
+              <ul class="nav navbar-nav text-left">
+                <li>
+                  <a href="PhotoCategory/Studio.html">студия</a>
+                </li>
+                <li>
+                  <a href="PhotoCategory/Nature.html">природа</a>
+                </li>
+                <li>
+                  <a class="unchanged" href="About.html">о фотографе</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .navbar-collapse -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .container-fluid -->
+      </nav>
+      <section class="col-xs-12 col-sm-8 col-lg-9 galllery-section">
+        <div class="container-fluid content">
+            <!-- <div class="row result">
+                <div class="col-md-12 img-column">
+                    @for (var i = 0; i < Model.Count; i += 4)
+                    {
+                        <div class="img-container" data-photoId="@Model[i].Id">
+                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i].PhotoName)" />
+                        </div>
+                    }
+                </div>
+                <div class="col-md-12 img-column">
+                    @for (var i = 0; i < Model.Count - 1; i += 4)
+                    {
+                        <div class="img-container" data-photoId="@Model[i+1].Id">
+                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i+1].PhotoName)" />
+                        </div>
+                    }
+                </div>
+                <div class="col-md-12 img-column">
+                    @for (var i = 0; i < Model.Count - 2; i += 4)
+                    {
+                        <div class="img-container" data-photoId="@Model[i+2].Id">
+                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i+2].PhotoName)" />
+                        </div>
+                    }
+                </div>
+                <div class="col-md-12 img-column">
+                    @for (var i = 0; i < Model.Count - 3; i += 4)
+                    {
+                        <div class="img-container" data-photoId="@Model[i+3].Id">
+                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i+3].PhotoName)" />
+                        </div>
+                    }
+                </div>
+            </div> -->
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+<script src="../Scripts/bootstrap.min.js"></script>
+<!-- <script src="../Scripts/hyphenate.js"></script> -->
+<!-- <script src="../Scripts/jquery.fittext.js"></script> -->
+<script src="../Scripts/gallery.js"></script>
+
+</html>
