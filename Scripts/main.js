@@ -5,6 +5,9 @@ var menu_button = $('#menu_button');
 var menu_container = $('.menu-container');
 var nav = $('nav');
 var body = $('body');
+var page = $('html');
+
+// var swup = new Swup();
 
 $(function () {
   window.ButtonInterval = setInterval(function () {
@@ -83,11 +86,16 @@ $(function () {
 
   $(document).ready(function () {
     $(window).trigger('resize');
+    var parent = document.referrer;
+    if(!(parent=="" || parent.indexOf('index')!=-1 || parent==null || parent == undefined)){
+      page.css('background', '#ffffff');
+    }
   });
 
   $(window).load(function () {
     $(window).trigger('resize');
     body.removeClass('invisible');
+    body.addClass('black');
     SetOffsetButton();
   });
 
@@ -126,5 +134,15 @@ $(function () {
       },100);
     }
   }
+  
+  $('.navbar-nav li a').click(function (e) {
+    e.preventDefault(); 
+    var target = "/"+$(this).attr('href');
+    page.css('background', '#ffffff');
+    body.addClass('invisible');
+    setTimeout(function () {
+      window.location.href = target; 
+    }, 500);
+  });
 });
 

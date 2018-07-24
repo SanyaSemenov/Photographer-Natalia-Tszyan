@@ -4,13 +4,20 @@ var text = $('.content .text');
 var body = $('body');
 var page = $('html');
 
+// var swup = new Swup();
+
 $(function () {
   jQuery('.text').hyphenate();
-  // if(document.referrer.indexOf('index'!=-1)){
-  //   page.css('background-color', '#000000');
-  // }
-
-  $(window).load(function(){
+  $(window).load(function () {
     body.removeClass('invisible');
+  });
+
+  $('.navbar-nav li a, .brand').click(function (e) {
+    e.preventDefault(); 
+    var target = "/"+$(this).attr('href');
+    body.addClass('invisible');
+    setTimeout(function () {
+      window.location.href = target; 
+    }, 500);
   });
 });

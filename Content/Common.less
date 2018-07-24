@@ -29,12 +29,18 @@
 @navbar-offset: 120px;
 @navbar-offset-tablet: 100px;
 
+html{
+  &.main-body{
+    background: black;
+  }
+}
+
 html,body{
   margin: 0;
   padding: 0;
   .general-text(@color-main);
   &.main-body{
-    background: black;
+    // background: black;
     overflow: hidden;
   }
   height: 100%;
@@ -54,7 +60,10 @@ body{
     }
   }
   &.invisible{
-    opacity: 0.01;
+    opacity: 0;
+  }
+  &.black{
+    background-color: #000;
   }
 }
 
