@@ -29,6 +29,8 @@
 @navbar-offset: 120px;
 @navbar-offset-tablet: 100px;
 
+
+
 html{
   &.main-body{
     background: black;
@@ -47,7 +49,7 @@ html,body{
 }
 
 body{
-  .smooth-long(all, 0.5s);
+  .smooth-long(all, 0.3s);
   opacity: 1;
   position: relative;
   background-color: white;
@@ -83,12 +85,12 @@ header{
     width: 100%;
     .centered;
   }
-  h2{
+  .h2{
     .smooth-long(all, 2s);
     text-shadow: 0 0 10px #ffffff;
     margin-top: 0px;
   }
-  h1{
+  .h1{
     margin-top: 0px;
   }
 }
@@ -152,6 +154,8 @@ header{
   padding: 0px;
   background: rgba(0,0,0,0.8);
   &.closed{
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
     transform: translateY(-100%);
     opacity: 0;
   }
@@ -168,6 +172,8 @@ header{
     opacity: 1;
     height: 100vh;
     &.closed{
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
       transform: translateX(-100%);
     }
     
@@ -193,6 +199,8 @@ header{
   float: left;
   left: 50%;
   position: relative;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   &>li{
     @media @tablet{
@@ -256,6 +264,8 @@ nav.nav {
       .centered;
       @media (max-width: 767px){
         top: unset;
+        -webkit-transform: translate(-50%, 0%);
+        -ms-transform: translate(-50%, 0%);
         transform: translate(-50%, 0%);
       }
       position: relative;
@@ -271,6 +281,8 @@ nav.nav {
 .navbar-header{
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   @media (max-width: 767px){
     border-bottom: 1px solid #000000;
@@ -286,6 +298,8 @@ nav.nav {
     z-index: 100;
     .navbar-nav{
       top: unset!important;
+      -webkit-transform: translate(-50%,0%)!important;
+      -ms-transform: translate(-50%,0%)!important;
       transform: translate(-50%,0%)!important;
     }
   }
@@ -301,7 +315,7 @@ nav.nav {
     background-color: transparent;
     color: @color-main;
   }
-  h1{
+  .h1{
     border-bottom: 1px solid #000000;
     margin-bottom: 0px;
     font-size: 28px;
@@ -312,7 +326,7 @@ nav.nav {
       font-size: 36px;
     }
   }
-  h2{
+  .h2{
     margin-top: 0px;
     font-size: 24px;
     @media @hd {
@@ -455,4 +469,63 @@ section{
 
 .gallery-section{
 
+}
+
+@tablet-img: ~"(min-width: 600px)";
+
+.img-column {
+  float: left;
+  min-height: 1px;
+  width: 100%;
+
+  @media @tablet-img {
+      width: 50%;
+  }
+
+  @media @desktop {
+      width: 25%;
+  }
+}
+
+.gallery-section{
+  @media @tablet {
+    top: @navbar-offset-tablet;
+    height: calc(100vh - @navbar-offset-tablet - 5px);
+  }
+  @media @large {
+    top: @navbar-offset-large;
+    height: calc(100vh - @navbar-offset-large - 10px);
+  }
+  .content{
+    @media @tablet {
+      padding: 0px 15px;
+    }
+    @media @desktop {
+      padding: 0px 20px;
+    }
+    @media @hd{
+      padding: 0px 25px;
+    }
+    @media @large{
+      padding: 0px 30px;
+    }
+  }
+  
+  .result{
+    margin: -6px;
+    .img-column{
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .img-container{
+      .smooth-long(all, 0.15s);
+      padding: 6px 0px;
+      opacity: 1;
+      cursor: zoom-in;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
 }

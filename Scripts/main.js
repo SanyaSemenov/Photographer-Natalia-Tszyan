@@ -142,7 +142,7 @@ $(function () {
     body.addClass('invisible');
     setTimeout(function () {
       window.location.href = target; 
-    }, 500);
+    }, 300);
   });
 });
 

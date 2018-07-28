@@ -14,7 +14,7 @@
   <base href="/">
 </head>
 
-<body>
+<body class="invisible">
   <div class="container-fluid">
     <div class="row">
       <nav class="col-xs-12 col-sm-4 col-lg-3 nav fixed-top closed">
@@ -27,8 +27,8 @@
                 <span></span>
               </button>
               <a class="brand text-center" href="index.html">
-                <h1 class="upper">Наталия Цзян</h1>
-                <h2 class="cursive">photographer</h2>
+                <h1 class="upper h1">Наталия Цзян</h1>
+                <h1 class="cursive h2">photographer</h1>
               </a>
             </div>
             <div class="navbar-collapse collapse" id="nav">
@@ -50,42 +50,52 @@
         </div>
         <!-- .container-fluid -->
       </nav>
-      <section class="col-xs-12 col-sm-8 col-lg-9 galllery-section">
+      <section class="col-xs-12 col-sm-8 col-lg-9 gallery-section">
         <div class="container-fluid content">
-            <!-- <div class="row result">
-                <div class="col-md-12 img-column">
-                    @for (var i = 0; i < Model.Count; i += 4)
-                    {
-                        <div class="img-container" data-photoId="@Model[i].Id">
-                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i].PhotoName)" />
-                        </div>
-                    }
-                </div>
-                <div class="col-md-12 img-column">
-                    @for (var i = 0; i < Model.Count - 1; i += 4)
-                    {
-                        <div class="img-container" data-photoId="@Model[i+1].Id">
-                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i+1].PhotoName)" />
-                        </div>
-                    }
-                </div>
-                <div class="col-md-12 img-column">
-                    @for (var i = 0; i < Model.Count - 2; i += 4)
-                    {
-                        <div class="img-container" data-photoId="@Model[i+2].Id">
-                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i+2].PhotoName)" />
-                        </div>
-                    }
-                </div>
-                <div class="col-md-12 img-column">
-                    @for (var i = 0; i < Model.Count - 3; i += 4)
-                    {
-                        <div class="img-container" data-photoId="@Model[i+3].Id">
-                            <img class="img-responsive img-thumbnail" src="@Url.Content("~/files/"+Model[i+3].PhotoName)" />
-                        </div>
-                    }
-                </div>
-            </div> -->
+          <div class="row result">
+            <div class="col-md-12 img-column">
+              <div class="img-container" data-src="../Files/1.jpg">
+                <img class="img-responsive" src="../Files/1.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/2.jpg">
+                <img class="img-responsive" src="../Files/2.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/3.jpg">
+                <img class="img-responsive" src="../Files/3.jpg" />
+              </div>
+
+              <div class="img-container" data-src="../Files/4.jpg">
+                <img class="img-responsive" src="../Files/4.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/5.jpg">
+                <img class="img-responsive" src="../Files/5.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/6.jpg">
+                <img class="img-responsive" src="../Files/6.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/7.jpg">
+                <img class="img-responsive" src="../Files/7.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/8.jpg">
+                <img class="img-responsive" src="../Files/8.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/9.jpg">
+                <img class="img-responsive" src="../Files/9.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/10.jpg">
+                <img class="img-responsive" src="../Files/10.jpg" />
+              </div>
+              <div class="img-container" data-src="../Files/11.jpg">
+                <img class="img-responsive" src="../Files/11.jpg" />
+              </div>
+            </div>
+            <div class="col-md-12 img-column">
+            </div>
+            <div class="col-md-12 img-column">
+            </div>
+            <div class="col-md-12 img-column">
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -93,7 +103,7 @@
 
 </body>
 <script src="../Scripts/bootstrap.min.js"></script>
-<script src="Scripts/swup.min.js"></script>
+<script src="../Scripts/jquery.easeScroll.js"></script>
 <script src="../Scripts/gallery.js"></script>
 
 </html>
