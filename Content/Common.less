@@ -3,36 +3,6 @@
 @import "fonts.less";
 @import "buttons.less";
 
-
-@tablet: ~"(min-width: 768px)";
-@desktop: ~"(min-width: 992px)";
-@hd: ~"(min-width: 1200px)";
-@large: ~"(min-width: 1400px)";
-@fullHD: ~"(min-width: 1900px)";
-
-@color-main-page: #ffffff;
-@color-m-p: @color-main-page;
-
-@color-main: #000000;
-
-@text-main-title: 50px;
-@text-m-t: @text-main-title;
-
-@text-main-subtitle: 50px;
-@text-m-sub: @text-main-subtitle;
-
-@text-size: 32px;
-@text-size-mobile: 24px;
-@text-size-desktop: 30px;
-@text-size-tablet: 28px;
-@text-size-large: 28px;
-
-@navbar-offset-large: 150px;
-@navbar-offset: 120px;
-@navbar-offset-tablet: 100px;
-
-
-
 html{
   &.main-body{
     background: black;
@@ -320,22 +290,22 @@ nav.nav {
   .h1{
     border-bottom: 1px solid #000000;
     margin-bottom: 0px;
-    font-size: 28px;
+    font-size: @brand-size-small;
     @media @hd{
-      font-size: 32px;
+      font-size: @brand-size;
     }
     @media @large {
-      font-size: 36px;
+      font-size: @brand-size-large;
     }
   }
   .h2{
     margin-top: 0px;
-    font-size: 24px;
+    font-size: @brand-size-small/6*5;
     @media @hd {
-      font-size: 27px;
+      font-size: @brand-size/6*5;
     }
     @media @large {
-      font-size: 30px
+      font-size: @brand-size-large/6*5;
     }
   }
   @media @tablet{
@@ -415,7 +385,7 @@ section{
     // padding-right: calc(((100vw*9/12) - (100vh - @navbar-offset*2))/2);
   }
   @media @hd{
-    padding: 0px 80px;
+    padding: 0px 120px;
   }
   @media @large{
     padding: 0px 120px;
@@ -424,7 +394,7 @@ section{
     .smooth-long(all, 0.3s);
     max-width: 1000px;
     direction: ltr;
-    font-size: 18px;
+    font-size: @content-size-mobile;
     margin: 0 auto;
     text-align: justify;
     &.first-line{
@@ -438,16 +408,16 @@ section{
       }
     }
     @media @tablet {
-      font-size: 20px; 
+      font-size: @content-size-tablet; 
     }
     @media @desktop {
-      font-size: 22px; 
+      font-size: @content-size-desktop; 
     }
     @media @hd {
-      font-size: 24px
+      font-size: @content-size;
     }
     @media @large{
-      font-size: 28px;
+      font-size: @content-size-large;
     }
   }
   .right{
