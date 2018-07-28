@@ -21,6 +21,15 @@ $(function () {
     fixedBackground: true
   });
 
+  $('.navbar-nav li a, .brand').click(function (e) {
+    e.preventDefault(); 
+    var target = "/"+$(this).attr('href');
+    body.addClass('invisible');
+    setTimeout(function () {
+      window.location.href = target; 
+    }, 500);
+  });
+
 
   Array.prototype.max = function () {
     return Math.max.apply(null, this);
