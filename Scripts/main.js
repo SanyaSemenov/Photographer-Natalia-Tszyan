@@ -87,7 +87,7 @@ $(function () {
   $(document).ready(function () {
     $(window).trigger('resize');
     var parent = document.referrer;
-    if(!(parent=="" || parent.indexOf('index')!=-1 || parent==null || parent == undefined)){
+    if(!(parent=="" || parent.indexOf('index')!=-1)){
       page.css('background', '#ffffff');
     }
   });

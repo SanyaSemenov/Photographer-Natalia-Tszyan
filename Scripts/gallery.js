@@ -4,6 +4,10 @@ var wholeHeight = [];
 var lastHeights = [];
 var withoutLast = [];
 var previousMax = -1;
+var current, next, previous;
+var allPhotos = [];
+var count = 0;
+var maximum = 0;
 
 $(function () {
   $("html").easeScroll({
@@ -22,11 +26,11 @@ $(function () {
   });
 
   $('.navbar-nav li a, .brand').click(function (e) {
-    e.preventDefault(); 
-    var target = "/"+$(this).attr('href');
+    e.preventDefault();
+    var target = "/" + $(this).attr('href');
     body.addClass('invisible');
     setTimeout(function () {
-      window.location.href = target; 
+      window.location.href = target;
     }, 500);
   });
 
@@ -44,9 +48,10 @@ $(function () {
   });
 
   $(window).load(function () {
-    StableAll();
+    SetColumns();
     changeDirection();
     body.removeClass('invisible');
+    SetControlsOffset();
   });
 
   function changeDirection() {
@@ -91,8 +96,41 @@ $(function () {
       element.appendTo(target);
       if (previousMax != max) {
         previousMax = max;
-        StableAll();
+        count++;
+        if (count < maximum)
+          StableAll();
       }
     }
+  }
+
+  function SetColumns() {
+    maximum = $('.img-container').length;
+    var container = $('.result');
+    var columnString = '<div class="col-md-12 img-column"></div>';
+    var windowWidth = $(window).width();
+    if (windowWidth >= 600 && windowWidth < 992) {
+      container.append(columnString);
+    }
+    else if (windowWidth >= 992 && windowWidth < 1921) {
+      for (let i = 0; i < 3; i++) {
+        container.append(columnString);
+      }
+    }
+    else if (windowWidth > 1921) {
+      for (let i = 0; i < 4; i++) {
+        container.append(columnString);
+      }
+    }
+    StableAll();
+  }
+
+  function SetControlsOffset() {
+    var currentPhoto = $('.photo.current img');
+    var width = currentPhoto.width();
+    $('.controls').css('width', width + 'px');
+  }
+
+  function SwithPhoto(step) {
+
   }
 });
