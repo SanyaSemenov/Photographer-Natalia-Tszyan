@@ -8,6 +8,10 @@ var current, next, previous;
 var allPhotos = [];
 var count = 0;
 var maximum = 0;
+var container;
+const columnString = '<div class="col-md-12 img-column"></div>';
+var windowWidth = 0;
+var firstStart = true;
 
 $(function () {
   $("html").easeScroll({
@@ -48,6 +52,11 @@ $(function () {
   });
 
   $(window).load(function () {
+    if (firstStart) {
+      windowWidth = $(window).width();
+      allPhotos = $('.img-container');
+    }
+    count = 0;
     SetColumns();
     changeDirection();
     body.removeClass('invisible');
@@ -104,10 +113,8 @@ $(function () {
   }
 
   function SetColumns() {
-    maximum = $('.img-container').length;
-    var container = $('.result');
-    var columnString = '<div class="col-md-12 img-column"></div>';
-    var windowWidth = $(window).width();
+    maximum = allPhotos.length;
+    container = $('.result');
     if (windowWidth >= 600 && windowWidth < 992) {
       container.append(columnString);
     }
@@ -133,4 +140,20 @@ $(function () {
   function SwithPhoto(step) {
 
   }
+
+  window.addEventListener("orientationchange", function () {
+    $('.img-column').remove();
+    container.append(columnString);
+    // allPhotos.forEach(element => {
+    //   container.find('.img-column').add(element);
+    // });
+    var firstColumn = container.find('.img-column');
+    $.each(allPhotos, function (index, value) {
+      firstColumn.append(value);
+    });
+    windowWidth = $(window).height();
+    firstStart = false;
+    $(window).trigger('load');
+    // open(location, '_self').close();
+  }, false);
 });
