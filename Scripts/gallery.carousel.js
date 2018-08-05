@@ -39,15 +39,29 @@ class PhotoCollection {
   }
 
   OpenActive(number) {
-    if (this.AllPhotos) {
+    var length = this.AllPhotos.length;
+    if (length > 2) {
       photo_view.removeClass('invisible');
       this.SetActive(false);
       this.SetPrevious(false);
       this.SetNext(false);
 
       this.Active = this.AllPhotos.find(x => x.counter === number);
-      var prev = this.AllPhotos.find(x => x.counter === number - 1);
-      var next = this.AllPhotos.find(x => x.counter === number + 1);
+
+      var prev;
+      var next;
+      if (number === 1){
+        prev = this.AllPhotos[length - 1];
+        next = this.AllPhotos[1];
+      }
+      else if (number > 1 && number < length){
+        prev = this.AllPhotos.find(x => x.counter === number - 1);
+        next = this.AllPhotos.find(x => x.counter === number + 1);
+      }
+      else if (number === length){
+        prev = this.AllPhotos[length - 2];
+        next = this.AllPhotos[0];
+      }
       this.Active.SetElement(false, 'previous');
       this.Active.SetElement(true, 'current');
       if (prev) {
@@ -86,17 +100,33 @@ class PhotoCollection {
     }
   }
 
-  SwitchNext() {
-    if (this.AllPhotos) {
+  SwitchPhoto(flag) {
+    var length = this.AllPhotos.length;
+    if (length > 2) {
       this.SetActive(false);
       this.SetPrevious(false);
       this.SetNext(false);
+      var active_index;
 
-      this.Active = this.Next;
-      var active_index = this.AllPhotos.indexOf(this.Active);
-      if (active_index < this.AllPhotos.length - 1)
+      if (flag)
+        this.Active = this.Next;
+      else
+        this.Active = this.Previous;
+      active_index = this.AllPhotos.indexOf(this.Active);
+      if (active_index === 0) {
         this.Next = this.AllPhotos[active_index + 1];
-      this.Previous = this.AllPhotos[active_index - 1];
+        this.Previous = this.AllPhotos[length - 1];
+      }
+      else if (active_index < length - 1) {
+        this.Next = this.AllPhotos[active_index + 1];
+        this.Previous = this.AllPhotos[active_index - 1];
+      }
+      else if (active_index === length - 1) {
+        this.Next = this.AllPhotos[0];
+        this.Previous = this.AllPhotos[active_index - 1];
+      }
+
+      number_place.text(this.Active.counter);
 
       this.SetActive(true);
       this.SetPrevious(true);
@@ -115,7 +145,7 @@ class PhotoCollection {
       this.SetPrevious(false);
       this.SetNext(false);
 
-      $('html').dblclick();
+      // $('html').dblclick();
       // gallery_section.trigger('click');
     }
   }
@@ -144,10 +174,32 @@ $(function () {
       collection.OpenActive(parseInt(target) + 1);
     });
 
-    control_close.click(function(){
+    control_close.click(function () {
       collection.Close();
-    })
+    });
+
+    control_left.click(function () {
+      collection.SwitchPhoto(false);
+    });
+
+    control_right.click(function () {
+      collection.SwitchPhoto(true);
+    });
+
     preload(photo_sources);
+
+    $(document).keydown(function (e) {
+      switch (e.which) {
+        case 37: // left
+          break;
+
+        case 39: // right
+          break;
+
+        default: return; // exit this handler for other keys
+      }
+      e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
   }
 
   function preload(imageArray, index) {
