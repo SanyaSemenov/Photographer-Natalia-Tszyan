@@ -494,7 +494,7 @@ section{
       .smooth-long(all, 0.15s);
       padding: 6px 0px;
       opacity: 1;
-      cursor: zoom-in;
+      cursor: url("/Files/Icons/zoom.svg") 24 24, auto;
       @media @tablet{
         &:hover{
           opacity: 0.8;
@@ -508,12 +508,29 @@ section{
   z-index: 1000;
   height: 100vh;
   width: 100vw;
-  background: #fff;
   position: fixed;
   &.invisible{
     visibility: hidden;
+    .view-container{
+      opacity: 0;
+    }
+    .photo-container{
+      .photo{
+        &.previous{ 
+          -webkit-transform: none;
+          -ms-transform: none;
+          transform: none;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &.invisible.temp{
+    visibility: visible;
   }
   .view-container{
+    .smooth(all, 0.3s, ease-in-out);
+    background: #fff;
     height: 100%;
     width: 100%;
     padding: 0;
@@ -522,6 +539,26 @@ section{
       height: 100%;
       margin: 0;
       position: relative;
+    }
+    .photo-label{
+      position: absolute;
+      bottom: 0;
+      height: 50px;
+      width: 100%;
+      font-size: 16px;
+    }
+    .controls{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      .control-close{
+        cursor: url("/Files/Icons/close.svg") 16 16, auto;
+        width: 100vw;
+        height: 25vh;
+        position: relative;
+      }
     }
   }
 }
@@ -536,52 +573,69 @@ section{
   height: calc(100vh - 100px);
   width: 100%;
   .photo{
+    .smooth(all, 0.5s, ease-in-out);
     position: absolute;
     height: 100%;
     width: 100%;
+    visibility: hidden;
+    opacity: 0;
     &.next{
-      left: 100vw;
+      visibility: visible;
+      left: 0;
+      opacity: 0;
+      -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      transform: translateX(100%);
     }
     &.previous{
-      right: 100vw;
+      visibility: visible;
+      left: 0;
+      opacity: 0;
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+    &.current{
+      opacity: 1;
+      visibility: visible;
     }
   }
-  .controls{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    .smooth(all, 0.3s, ease-in-out);
-  }
-  .control{
-    position: absolute;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    img{
-      width: 50px;
-    }
-    &.arrow-left{
-      // -webkit-transform: translate(-50%);
-      // -ms-transform: translate(-50%);
-      // transform: translate(-50%);
-      left: -90px;
-    }
-    &.arrow-right{
-      // -webkit-transform: translate(-50%);
-      // -ms-transform: translate(-50%);
-      // transform: translate(-50%);
-      right: -90px;
-      img{
-        transform-origin: center;
-        -webkit-transform: scaleX(-1);
-        -ms-transform: scaleX(-1);
-        transform: scaleX(-1);
-      }
-    }
-  }
+  // .controls{
+  //   position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   -webkit-transform: translate(-50%, -50%);
+  //   -ms-transform: translate(-50%, -50%);
+  //   transform: translate(-50%, -50%);
+  //   .smooth(all, 0.3s, ease-in-out);
+  // }
+  // .control{
+  //   position: absolute;
+  //   -webkit-transform: translateY(-50%);
+  //   -ms-transform: translateY(-50%);
+  //   transform: translateY(-50%);
+  //   img{
+  //     width: 50px;
+  //   }
+  //   &.arrow-left{
+  //     // -webkit-transform: translate(-50%);
+  //     // -ms-transform: translate(-50%);
+  //     // transform: translate(-50%);
+  //     left: -90px;
+  //   }
+  //   &.arrow-right{
+  //     // -webkit-transform: translate(-50%);
+  //     // -ms-transform: translate(-50%);
+  //     // transform: translate(-50%);
+  //     right: -90px;
+  //     img{
+  //       transform-origin: center;
+  //       -webkit-transform: scaleX(-1);
+  //       -ms-transform: scaleX(-1);
+  //       transform: scaleX(-1);
+  //     }
+  //   }
+  // }
 }
 
 .img-photo{
@@ -589,4 +643,8 @@ section{
   width: auto;
   max-width: 100%;
   margin: 0 auto;
+  -webkit-box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+  -ms-box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+  box-shadow: 0 0 1rem rgba(0,0,0,0.4);
 }

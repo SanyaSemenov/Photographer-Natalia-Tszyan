@@ -14,20 +14,20 @@ var windowWidth = 0;
 var firstStart = true;
 
 $(function () {
-  $("html").easeScroll({
-    frameRate: 60,
-    animationTime: 1200,
-    stepSize: 120,
-    pulseAlgorithm: 1,
-    pulseScale: 8,
-    pulseNormalize: 1,
-    accelerationDelta: 20,
-    accelerationMax: 1,
-    keyboardSupport: true,
-    arrowScroll: 50,
-    touchpadSupport: true,
-    fixedBackground: true
-  });
+  // $("html").easeScroll({
+  //   frameRate: 60,
+  //   animationTime: 1200,
+  //   stepSize: 120,
+  //   pulseAlgorithm: 1,
+  //   pulseScale: 8,
+  //   pulseNormalize: 1,
+  //   accelerationDelta: 20,
+  //   accelerationMax: 1,
+  //   keyboardSupport: true,
+  //   arrowScroll: 50,
+  //   touchpadSupport: true,
+  //   fixedBackground: true
+  // });
 
   $('.navbar-nav li a, .brand').click(function (e) {
     e.preventDefault();
