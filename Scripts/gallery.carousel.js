@@ -50,15 +50,15 @@ class PhotoCollection {
 
       var prev;
       var next;
-      if (number === 1){
+      if (number === 1) {
         prev = this.AllPhotos[length - 1];
         next = this.AllPhotos[1];
       }
-      else if (number > 1 && number < length){
+      else if (number > 1 && number < length) {
         prev = this.AllPhotos.find(x => x.counter === number - 1);
         next = this.AllPhotos.find(x => x.counter === number + 1);
       }
-      else if (number === length){
+      else if (number === length) {
         prev = this.AllPhotos[length - 2];
         next = this.AllPhotos[0];
       }
@@ -191,9 +191,11 @@ $(function () {
     $(document).keydown(function (e) {
       switch (e.which) {
         case 37: // left
+          collection.SwitchPhoto(false);
           break;
 
         case 39: // right
+          collection.SwitchPhoto(true);
           break;
 
         default: return; // exit this handler for other keys
