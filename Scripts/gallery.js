@@ -118,7 +118,7 @@ $(function () {
     if (windowWidth < 768) {
       $('#photo_view').remove();
     }
-    if (windowWidth >= 600 && windowWidth < 992) {
+    if (windowWidth >= 768 && windowWidth < 992) {
       container.append(columnString);
     }
     else if (windowWidth >= 992 && windowWidth < 1921) {
