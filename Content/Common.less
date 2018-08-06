@@ -573,6 +573,61 @@ section{
       }
     }
   }
+  @media (min-width: 400px){
+    &.touch{
+      .view-container{
+        .controls{
+          .control-close{
+            background: url("/Files/Icons/close.svg");
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+          }
+          .control{
+            float: unset;
+            width: 24px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            &.control-left{
+              left: 5px;
+              background: url("/Files/Icons/left.svg");
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+            &.control-right{
+              right: 5px;
+              background: url("/Files/Icons/right.svg");
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.photo_view{
+  &.temp{
+    .photo-container{
+      .photo{
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
 }
 
 .photo-container{
@@ -610,6 +665,9 @@ section{
     &.current{
       opacity: 1;
       visibility: visible;
+      -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      transform: translate(0, 0);
     }
   }
   // .controls{
@@ -653,7 +711,7 @@ section{
 .img-photo{
   max-height: 100%;
   width: auto;
-  max-width: 100%;
+  max-width: calc(100% - 40px);
   margin: 0 auto;
   -webkit-box-shadow: 0 0 1rem rgba(0,0,0,0.4);
   -moz-box-shadow: 0 0 1rem rgba(0,0,0,0.4);

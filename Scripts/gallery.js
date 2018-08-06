@@ -115,6 +115,9 @@ $(function () {
   function SetColumns() {
     maximum = allPhotos.length;
     container = $('.result');
+    if (windowWidth < 768) {
+      $('#photo_view').remove();
+    }
     if (windowWidth >= 600 && windowWidth < 992) {
       container.append(columnString);
     }
@@ -135,10 +138,6 @@ $(function () {
     var currentPhoto = $('.photo.current img');
     var width = currentPhoto.width();
     $('.controls').css('width', width + 'px');
-  }
-
-  function SwithPhoto(step) {
-
   }
 
   window.addEventListener("orientationchange", function () {
