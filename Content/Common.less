@@ -441,7 +441,8 @@ section{
 @tablet-img: ~"(min-width: 768px)";
 @extra-large: ~"(min-width: 1921px)";
 
-.img-column {
+.img-column,
+.img-column-first {
   float: left;
   min-height: 1px;
   width: 100%;
@@ -456,6 +457,13 @@ section{
 
   @media @extra-large{
     width: 20%;
+  }
+}
+
+.img-column-first{
+  @media @tablet {
+    position: absolute;
+    visibility: hidden;
   }
 }
 
@@ -485,7 +493,8 @@ section{
   
   .result{
     margin: -6px;
-    .img-column{
+    .img-column,
+    .img-column-first{
       padding-left: 6px;
       padding-right: 6px;
     }
